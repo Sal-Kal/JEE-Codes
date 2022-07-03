@@ -33,7 +33,9 @@ public class TelephoneClient {
 					no = sc.next();
 					MissedCallList.addMissedCall(new MissedCall(no));
 					break;
-			case 5: MissedCallList.deleteMissedCall();
+			case 5: System.out.println("Enter a phone no. ");
+					no = sc.next();
+					MissedCallList.deleteMissedCall(no);
 					break;
 			case 6: MissedCallList.getMissedCalls();
 					break;
