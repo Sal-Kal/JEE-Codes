@@ -13,7 +13,7 @@ public class BooksList {
 		Collections.sort(sortedList, new Comparator<Book>() {
 			@Override
 			public int compare(Book b1, Book b2) {
-				if(b1.price < b2.price) {
+				if(b1.price > b2.price) {
 					return 1;
 				}
 				else if(b1.price == b2.price) {
