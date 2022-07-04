@@ -1,0 +1,1 @@
+name: Saish gender: male salaray: 100.0 deduct: 2.0 tax: 29.4
