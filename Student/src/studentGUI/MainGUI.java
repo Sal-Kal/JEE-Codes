@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.*;
 
 public class MainGUI extends JFrame implements ActionListener{
+	private static final long serialVersionUID = 1L;
 	public JTextArea area;
 	public JLabel name,usn,address,age,gpa1,gpa2,gpa3,gpa4,gpa5,gpa6,gpa7,gpa8,cat;
 	public JTextField txtname,txtusn,txtaddr,txtage,txtg1,txtg2,txtg3,txtg4,txtg5,txtg6,txtg7,txtg8;
@@ -17,7 +18,7 @@ public class MainGUI extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.setSize(420, 420);
-		this.setLayout(new GridLayout(5,1));
+		this.setLayout(new GridLayout(5,2));
 		name = new JLabel("Name");
 		usn = new JLabel("USN");
 		address = new JLabel("Address");
@@ -96,10 +97,10 @@ public class MainGUI extends JFrame implements ActionListener{
 				age = Integer.parseInt(txtage.getText());
 				if(age<0 || age>100)		
 				{
-					txtage.setText(JOptionPane.showInputDialog(null, "reenter age"));
+					JOptionPane.showMessageDialog(null, "reenter age");
 				}
 			}catch(Exception e) {
-				txtage.setText(JOptionPane.showInputDialog(null, "reenter age"));
+				JOptionPane.showMessageDialog(null, "reenter age");
 			}
 			Student s = new Student(
 					txtname.getText(),

@@ -15,9 +15,12 @@ public class ContactList {
 	
 	public static void printContacts() {
 		System.out.println();
-		Iterator<Contact> it = contacts.iterator();
-		while(it.hasNext()) {
-			Contact c = it.next();
+//		Iterator<Contact> it = contacts.iterator();
+//		while(it.hasNext()) {
+//			Contact c = it.next();
+//			System.out.println("Name : "+c.name+" No. : "+c.no);
+//		}
+		for(Contact c : contacts) {
 			System.out.println("Name : "+c.name+" No. : "+c.no);
 		}
 		System.out.println();
@@ -26,9 +29,9 @@ public class ContactList {
 	public static void deleteContact(String name) {
 		int index = 0;
 		boolean found = false;
-		Iterator<Contact> it = contacts.iterator();
-		while(it.hasNext()) {
-			if(it.next().name.equals(name)) {
+//		Iterator<Contact> it = contacts.iterator();
+		for(Contact c : contacts) {
+			if(c.name.equals(name)) {
 				found = true;
 				break;
 			}

@@ -45,36 +45,43 @@ public class ItemGUI extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		float temp;
 		String item = item_txt.getText();
 		if(e.getSource() == calculate) {
 			item = item_txt.getText();
 			for(Item i : ItemList.getList()) {
 				if(i.name.equals(item)) {
-					price = i.price;
+					temp = i.price * Integer.parseInt(this.quantity_txt.getText());
+					price = price + temp;
 					System.out.println(price);
-					price = price * Integer.parseInt(this.quantity_txt.getText());
 					System.out.println(price);
-					if(this.type.equals("regular")) {
-						float discount = price * 0.07f;
-						price = price - discount;
-						System.out.println(price);
-						String p = Float.toString(price);
-						message.setText("Price after discount: "+p);
-					}
-					else if(this.type.equals("special")) {
-						float discount = price * 0.1f;
-						price = price - discount;
-						System.out.println(price);
-						String p = Float.toString(price);
-						message.setText("Price after discount: "+p);
+//					if(this.type.equals("regular")) {
+//						float discount = price * 0.07f;
+//						price = price - discount;
+//						System.out.println(price);
+//						String p = Float.toString(price);
+//						message.setText("Price after discount: "+p);
+//					}
+//					else if(this.type.equals("special")) {
+//						float discount = price * 0.1f;
+//						price = price - discount;
+//						System.out.println(price);
+//						String p = Float.toString(price);
+//						message.setText("Price after discount: "+p);
 					}
 					break;
 				}
 			}
-		}
 		if(e.getSource() == check_out) {
-			message.setText(JOptionPane.showInputDialog(null, ("Price to be paid: "+price)));
+			String options[]  = {"10%","20%"};
+			int x = JOptionPane.showOptionDialog(null, "Enter type of discount", "Choose Discount", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+			if(x == 0) {
+				JOptionPane.showMessageDialog(null, "You need to pay: "+(price - price*0.1f));
+			}
+			if(x == 1) {
+				JOptionPane.showMessageDialog(null, "You need to pay: "+(price - price*0.2f));
+			}
+		}
 		}
 	}
 
-}
